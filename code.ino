@@ -18,7 +18,6 @@ int dist_front;
 int dist_back;
 int dist_left;
 int dist_right;
-float dist_min = 20.00;
 String data_received = "";
 String data_str = "";
 char command = 's';
@@ -27,7 +26,7 @@ int interval;
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(trig_front, OUTPUT);
   pinMode(echo_front, INPUT);
   pinMode(trig_back, OUTPUT);
@@ -50,7 +49,7 @@ void loop()
   dist_right = dist_calc(trig_right, echo_right);
   
   send_data();
-  delay(2);
+  delay(1);
   receive_data();
   //Serial.println(command);
   algorithm();
@@ -130,7 +129,7 @@ void stop()
 
 void algorithm()
 {
-  interval = 2;
+  interval = 0;
   
   if(command == 'f')
   {
@@ -162,4 +161,3 @@ void algorithm()
     delay(interval);
   }
 }
-
