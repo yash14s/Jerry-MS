@@ -20,7 +20,7 @@ decision_tree.fit(X, y)
 import serial
 import time
 arduino_port = "/dev/ttyACM0" 
-baud = 9600 
+baud = 115200 
 ser = serial.Serial(arduino_port, baud)
 print("Connected to Arduino port:" + arduino_port)
 
