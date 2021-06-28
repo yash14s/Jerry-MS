@@ -42,9 +42,7 @@ void setup()
   Serial.print(",");
   Serial.print("Left");
   Serial.print(",");
-  Serial.print("Right");
-  Serial.print(",");
-  Serial.println("Command");
+  Serial.println("Right");
 }
 
 void loop()
@@ -55,7 +53,7 @@ void loop()
   dist_right = dist_calc(trig_right, echo_right);
   
   print_serial();
-  delay(3000);
+  delay(1000);
 }
 
 float dist_calc(int trig, int echo)
@@ -70,74 +68,6 @@ float dist_calc(int trig, int echo)
   return dist;
 }
 
-void move_front()
-{
-  digitalWrite(LF, HIGH);
-  digitalWrite(LB, LOW);
-  digitalWrite(RF, HIGH);
-  digitalWrite(RB, LOW);
-}
-
-void move_back()
-{
-  digitalWrite(LF, LOW);
-  digitalWrite(LB, HIGH);
-  digitalWrite(RF, LOW);
-  digitalWrite(RB, HIGH);
-}
-
-void move_left()
-{
-  digitalWrite(LF, LOW);
-  digitalWrite(LB, HIGH);
-  digitalWrite(RF, HIGH);
-  digitalWrite(RB, LOW);
-}
-
-void move_right()
-{
-  digitalWrite(LF, HIGH);
-  digitalWrite(LB, LOW);
-  digitalWrite(RF, LOW);
-  digitalWrite(RB, HIGH);
-}
-
-void stop()
-{
-  digitalWrite(LF, LOW);
-  digitalWrite(LB, LOW);
-  digitalWrite(RF, LOW);
-  digitalWrite(RB, LOW);
-}
-
-void algorithm()
-{
-  if((dist_front > dist_min)&&(dist_left > dist_min)&&(dist_right > dist_min))
-  {
-    move_front();
-    command = "front";
-  }
-  else if(dist_left > dist_min)
-  {
-    move_left();
-    command = "left";
-  }
-  else if(dist_right > dist_min)
-  {
-    move_right();
-    command = "right";
-  }
-  else if(dist_back > dist_min)
-  {
-    move_back();
-    command = "back";
-  }
-  else{
-    stop();
-    command = "stop";
-  }
-}
-
 void print_serial()
 {
   Serial.print("Front: ");
@@ -147,21 +77,8 @@ void print_serial()
   Serial.print("Left: ");
   Serial.println(dist_left);
   Serial.print("Right: ");
-  Serial.println(dist_right);
-  Serial.print("Command: ");
-  Serial.println(command);               
+  Serial.println(dist_right);              
   Serial.println("***********");
 }
 
-void print_csv()
-{
-  Serial.print(dist_front);
-  Serial.print(",");
-  Serial.print(dist_back);
-  Serial.print(",");
-  Serial.print(dist_left);
-  Serial.print(",");
-  Serial.print(dist_right);
-  Serial.print(",");
-  Serial.println(command);
-}
+
