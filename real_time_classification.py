@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 print("LOADING DATASET")
-df = pd.read_csv('data_test.csv')
+df = pd.read_csv('data.csv')
 features=df.iloc[:,0:4]
 target=df.iloc[:,4:5]
 np.random.seed(1234)
