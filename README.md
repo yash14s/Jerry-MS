@@ -1,5 +1,7 @@
 # Jerry-MS
 
+Paper: https://arxiv.org/abs/2111.12542 
+
 arduino_control - Original code for arduino, raspi independent
 
 create_csv.py - Python code to log ultrasonic values in data. csv file. Execute in a terminal after executing arduino_control.ino
