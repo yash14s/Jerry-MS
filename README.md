@@ -1,6 +1,6 @@
-# Jerry-MS
-
 Paper: https://arxiv.org/abs/2111.12542 
+
+Demo Videos: https://www.youtube.com/playlist?list=PLOb2NXVbCPbSkYf4oxKLrVQkXnnsJ8HQE  
 
 arduino_control - Original code for arduino, raspi independent
 
